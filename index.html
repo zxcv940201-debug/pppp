@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>瑪麗·安東妮 - 洛可可之花的絕代傳奇</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Anime.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Playfair+Display:ital,wght@0,600;0,800;1,400;1,700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rococo: {
+                            pink: '#F8C8DC',
+                            rose: '#E899AC',
+                            mint: '#A8C3A0',
+                            gold: '#D4AF37',
+                            goldlight: '#F4E8C1',
+                            cream: '#FDFBF7',
+                            dark: '#2C3531',
+                            accent: '#C5828E',
+                            purple: '#8E7287'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Noto Serif TC"', 'serif'],
+                        playfair: ['"Playfair Display"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FDFBF7;
+            color: #2C3531;
+            font-family: 'Noto Serif TC', serif;
+            overflow-x: hidden;
+            background-image: radial-gradient(#E899AC 0.6px, transparent 0.6px), radial-gradient(#D4AF37 0.6px, #FDFBF7 0.6px);
+            background-size: 24px 24px;
+            background-position: 0 0, 12px 12px;
+        }
+
+        /* 洛可可金雕畫框風格 */
+        .rococo-gold-frame {
+            border: 4px solid #D4AF37;
+            outline: 2px solid #F4E8C1;
+            outline-offset: -8px;
+            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.25), inset 0 0 20px rgba(212, 175, 55, 0.15);
+            background: #ffffff;
+        }
+
+        .rococo-ornament-title::before, .rococo-ornament-title::after {
+            content: ' ❦ ';
+            color: #D4AF37;
+            font-size: 1.4rem;
+            vertical-align: middle;
+            margin: 0 10px;
+        }
+
+        .rococo-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,200,220,0.25) 100%);
+            border: 2px solid rgba(212, 175, 55, 0.4);
+            box-shadow: 0 8px 25px rgba(200, 140, 160, 0.12);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .rococo-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 35px rgba(212, 175, 55, 0.3);
+            border-color: #D4AF37;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FDFBF7;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #E899AC 0%, #D4AF37 100%);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body class="relative">
+
+    <nav class="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b-2 border-rococo-gold/40 px-6 py-4 flex justify-between items-center shadow-sm">
+        <div class="flex items-center space-x-3">
+            <span class="text-rococo-gold text-3xl font-black font-playfair tracking-wider">M.A.</span>
+            <span class="text-xs uppercase tracking-widest text-rococo-accent font-bold hidden sm:inline border-l border-rococo-gold/40 pl-3">Marie Antoinette</span>
+        </div>
+        <div class="hidden md:flex space-x-8 text-sm font-bold tracking-wider text-rococo-dark">
+            <a href="#hero" class="hover:text-rococo-rose transition">01 首頁</a>
+            <a href="#background" class="hover:text-rococo-rose transition">02 背景</a>
+            <a href="#gallery" class="hover:text-rococo-rose transition">03 名畫</a>
+            <a href="#story" class="hover:text-rococo-rose transition">04 故事與爭議</a>
+            <a href="#timeline" class="hover:text-rococo-rose transition">05 一生時間軸</a>
+        </div>
+        <a href="#timeline" class="px-5 py-2.5 bg-gradient-to-r from-rococo-rose to-rococo-gold text-white text-xs font-bold rounded-full shadow-md hover:brightness-110 transition">
+            ✨ 探索時間軸
+        </a>
+    </nav>
+
+    <section id="hero" class="min-h-screen pt-28 pb-16 flex flex-col justify-center items-center relative px-4 text-center bg-gradient-to-b from-rococo-pink/30 via-rococo-cream to-rococo-cream">
+        <div class="max-w-5xl mx-auto z-10">
+            <p class="hero-subtitle opacity-0 text-xs md:text-sm tracking-[0.3em] uppercase text-rococo-accent font-bold mb-3">
+                ⚜️ 凡爾賽宮的璀璨瑰寶 ⚜️
+            </p>
+            <h1 class="hero-title opacity-0 text-4xl sm:text-6xl md:text-7xl font-black text-rococo-dark font-serif leading-tight mb-6">
+                法國皇后 <br class="sm:hidden"><span class="font-playfair italic text-transparent bg-clip-text bg-gradient-to-r from-rococo-rose via-rococo-purple to-rococo-gold">瑪麗·安東妮</span>
+            </h1>
+            <p class="hero-desc opacity-0 text-base md:text-lg text-gray-700 max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
+                從奧地利奢華公主，到洛可可時尚的絕代指標。透過藝術名畫與歷史軌跡，探索這朵綻放於革命風暴前的凡爾賽之花。
+            </p>
+
+            <!-- Hero 主視覺畫像 (高質感 SVG 精緻油畫) -->
+            <div class="hero-image opacity-0 relative max-w-md mx-auto rounded-t-full p-4 rococo-gold-frame shadow-2xl mb-8">
+                <div class="relative overflow-hidden rounded-t-full bg-rococo-cream aspect-[3/4] flex items-center justify-center">
+                    <svg viewBox="0 0 400 530" class="w-full h-full">
+                        <defs>
+                            <linearGradient id="hero-bg" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#2D3A34"/>
+                                <stop offset="60%" stop-color="#4A5D54"/>
+                                <stop offset="100%" stop-color="#1F2824"/>
+                            </linearGradient>
+                            <linearGradient id="dress-blue" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#8BB0C2"/>
+                                <stop offset="50%" stop-color="#5B8296"/>
+                                <stop offset="100%" stop-color="#345061"/>
+                            </linearGradient>
+                        </defs>
+                        <!-- 背景 -->
+                        <rect width="400" height="530" fill="url(#hero-bg)"/>
+                        <circle cx="200" cy="180" r="140" fill="#A8C3A0" opacity="0.15"/>
+                        <!-- 禮服裙擺 -->
+                        <path d="M70 530 C120 380, 280 380, 330 530 Z" fill="url(#dress-blue)"/>
+                        <path d="M110 530 C150 420, 250 420, 290 530 Z" fill="#4B6E82" opacity="0.6"/>
+                        <path d="M120 400 Q200 440 280 400" stroke="#F4E8C1" stroke-width="6" fill="none"/>
+                        <!-- 身體與頸部 -->
+                        <path d="M165 260 C165 340, 235 340, 235 260 Z" fill="url(#dress-blue)"/>
+                        <path d="M175 220 L225 220 L220 280 L180 280 Z" fill="#FFE5D9"/>
+                        <ellipse cx="200" cy="225" rx="25" ry="8" fill="#FFF" opacity="0.8"/>
+                        <!-- 臉部與髮型 -->
+                        <ellipse cx="200" cy="180" rx="38" ry="48" fill="#FFE5D9"/>
+                        <!-- 高聳灰白捲髮 -->
+                        <path d="M150 170 C140 100, 260 100, 250 170 C270 140, 270 80, 200 70 C130 80, 130 140, 150 170 Z" fill="#EAEAEA"/>
+                        <path d="M160 80 Q200 40 240 80" fill="none" stroke="#FFF" stroke-width="12" stroke-linecap="round"/>
+                        <path d="M180 60 Q200 20 210 50" fill="none" stroke="#F8C8DC" stroke-width="8"/>
+                    </svg>
+                </div>
+                <div class="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-white/95 px-6 py-2 rounded-full border border-rococo-gold text-xs font-bold text-rococo-dark shadow-lg flex items-center gap-2 whitespace-nowrap z-20">
+                    <span class="text-rococo-gold">✦</span> 經典洛可可油畫肖像《手拿玫瑰的瑪麗·安東妮》 <span class="text-rococo-gold">✦</span>
+                </div>
+            </div>
+
+            <div class="hero-btn opacity-0 pt-4">
+                <a href="#background" class="inline-flex items-center space-x-2 text-rococo-dark bg-rococo-goldlight/80 hover:bg-rococo-gold hover:text-white px-6 py-3 rounded-full border border-rococo-gold font-bold text-sm transition shadow-md">
+                    <span>開始藝術與歷史之旅</span>
+                    <i class="fa-solid fa-chevron-down animate-bounce ml-1"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="background" class="py-20 px-6 max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+            <span class="text-xs uppercase tracking-widest text-rococo-accent font-bold">02 / BACKGROUND</span>
+            <h2 class="text-3xl md:text-4xl font-black font-serif text-rococo-dark mt-2 rococo-ornament-title">時代背景與王室出身</h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-transparent via-rococo-gold to-transparent mx-auto mt-4"></div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- 背景卡片 1 -->
+            <div class="rococo-card p-6 rounded-2xl flex flex-col items-center text-center">
+                <div class="w-full h-52 mb-5 rounded-xl overflow-hidden border-2 border-rococo-gold/50 bg-rococo-cream flex items-center justify-center">
+                    <svg viewBox="0 0 300 200" class="w-full h-full">
+                        <rect width="300" height="200" fill="#FDFBF7"/>
+                        <circle cx="150" cy="100" r="70" fill="#F8C8DC" opacity="0.4"/>
+                        <path d="M120 140 C120 90, 180 90, 180 140 Z" fill="#E899AC"/>
+                        <circle cx="150" cy="80" r="22" fill="#FFE5D9"/>
+                        <path d="M130 75 Q150 50 170 75 Q180 60 150 50 Q120 60 130 75 Z" fill="#D4AF37"/>
+                        <text x="150" y="180" font-family="serif" font-size="13" fill="#2C3531" text-anchor="middle" font-weight="bold">奧地利霍夫堡皇宮幼女</text>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-rococo-dark mb-2 font-serif">哈布斯堡的貴族公主</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    1755年出生於維也納，是神聖羅馬帝國女皇瑪麗亞·特蕾莎的最幼女，從小在極其優雅且富含藝術薰陶的宮廷中成長。
+                </p>
+            </div>
+
+            <!-- 背景卡片 2 -->
+            <div class="rococo-card p-6 rounded-2xl flex flex-col items-center text-center">
+                <div class="w-full h-52 mb-5 rounded-xl overflow-hidden border-2 border-rococo-gold/50 bg-rococo-cream flex items-center justify-center">
+                    <svg viewBox="0 0 300 200" class="w-full h-full">
+                        <rect width="300" height="200" fill="#F4E8C1" opacity="0.5"/>
+                        <path d="M80 150 L130 80 L180 150 Z" fill="#A8C3A0" opacity="0.6"/>
+                        <path d="M130 150 L180 70 L230 150 Z" fill="#E899AC" opacity="0.6"/>
+                        <circle cx="155" cy="110" r="15" fill="#D4AF37"/>
+                        <text x="150" y="180" font-family="serif" font-size="13" fill="#2C3531" text-anchor="middle" font-weight="bold">14歲遠嫁法蘭西王室</text>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-rococo-dark mb-2 font-serif">跨國聯姻與凡爾賽大婚</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    為了鞏固奧地利與法國的和平結盟，年僅14歲的瑪麗遠嫁法國，與未來的路易十六結婚，步入璀璨繁複的凡爾賽宮。
+                </p>
+            </div>
+
+            <!-- 背景卡片 3 -->
+            <div class="rococo-card p-6 rounded-2xl flex flex-col items-center text-center">
+                <div class="w-full h-52 mb-5 rounded-xl overflow-hidden border-2 border-rococo-gold/50 bg-rococo-cream flex items-center justify-center">
+                    <svg viewBox="0 0 300 200" class="w-full h-full">
+                        <rect width="300" height="200" fill="#A8C3A0" opacity="0.3"/>
+                        <path d="M50 160 Q150 40 250 160" stroke="#8E7287" stroke-width="4" fill="none"/>
+                        <rect x="135" y="110" width="30" height="40" fill="#F8C8DC" rx="4"/>
+                        <circle cx="150" cy="90" r="12" fill="#FFE5D9"/>
+                        <text x="150" y="185" font-family="serif" font-size="13" fill="#2C3531" text-anchor="middle" font-weight="bold">洛可可藝術靈魂代表</text>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-rococo-dark mb-2 font-serif">洛可可美學風格之巔</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    當時法國風行輕柔粉彩、浪漫且極致華麗的洛可可風格，瑪麗皇后迅速成為了全歐洲時尚與美學的風向球。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-20 bg-gradient-to-r from-rococo-pink/20 via-rococo-goldlight/30 to-rococo-pink/20 border-y border-rococo-gold/30">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-xs uppercase tracking-widest text-rococo-accent font-bold">03 / ARTWORKS</span>
+                <h2 class="text-3xl md:text-4xl font-black font-serif text-rococo-dark mt-2 rococo-ornament-title">宮廷名畫典藏畫廊</h2>
+                <p class="text-gray-600 text-sm mt-2">點擊卡片即可展開檢視名畫藝術背景說明</p>
+                <div class="w-24 h-1 bg-gradient-to-r from-transparent via-rococo-gold to-transparent mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 畫像 1 -->
+                <div class="rococo-gold-frame p-4 rounded-2xl cursor-pointer hover:scale-105 transition duration-300" onclick="openModal(0)">
+                    <div class="aspect-[3/4] bg-rococo-cream rounded-xl overflow-hidden mb-4 relative flex items-center justify-center">
+                        <div id="gallery-img-0-container" class="w-full h-full flex items-center justify-center bg-gray-100">
+                            <i class="fa-solid fa-spinner fa-spin text-rococo-gold text-2xl"></i>
+                        </div>
+                        <div class="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition flex items-center justify-center text-white font-bold text-sm">
+                            放大點擊檢視 🔍
+                        </div>
+                    </div>
+                    <h4 class="font-bold font-serif text-lg text-rococo-dark">《手拿玫瑰的瑪麗·安東妮》</h4>
+                    <p class="text-xs text-rococo-accent font-bold mt-1">1783年 經典宮廷畫像</p>
+                </div>
+
+                <!-- 畫像 2 -->
+                <div class="rococo-gold-frame p-4 rounded-2xl cursor-pointer hover:scale-105 transition duration-300" onclick="openModal(1)">
+                    <div class="aspect-[3/4] bg-rococo-cream rounded-xl overflow-hidden mb-4 relative flex items-center justify-center">
+                        <div id="gallery-img-1-container" class="w-full h-full flex items-center justify-center bg-gray-100">
+                            <i class="fa-solid fa-spinner fa-spin text-rococo-gold text-2xl"></i>
+                        </div>
+                        <div class="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition flex items-center justify-center text-white font-bold text-sm">
+                            放大點擊檢視 🔍
+                        </div>
+                    </div>
+                    <h4 class="font-bold font-serif text-lg text-rococo-dark">《特里亞農公園散步的皇后與子女》</h4>
+                    <p class="text-xs text-rococo-accent font-bold mt-1">1785年 溫馨家庭肖像</p>
+                </div>
+
+                <!-- 畫像 3 -->
+                <div class="rococo-gold-frame p-4 rounded-2xl cursor-pointer hover:scale-105 transition duration-300" onclick="openModal(2)">
+                    <div class="aspect-[3/4] bg-rococo-cream rounded-xl overflow-hidden mb-4 relative flex items-center justify-center">
+                        <div id="gallery-img-2-container" class="w-full h-full flex items-center justify-center bg-gray-100">
+                            <i class="fa-solid fa-spinner fa-spin text-rococo-gold text-2xl"></i>
+                        </div>
+                        <div class="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition flex items-center justify-center text-white font-bold text-sm">
+                            放大點擊檢視 🔍
+                        </div>
+                    </div>
+                    <h4 class="font-bold font-serif text-lg text-rococo-dark">《穿棉質襯裙禮服的瑪麗·安東妮》</h4>
+                    <p class="text-xs text-rococo-accent font-bold mt-1">1783年 宮廷時尚爭議作品</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="story" class="py-20 px-6 max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+            <span class="text-xs uppercase tracking-widest text-rococo-accent font-bold">04 / PALACE LIFE & CONTROVERSY</span>
+            <h2 class="text-3xl md:text-4xl font-black font-serif text-rococo-dark mt-2 rococo-ornament-title">凡爾賽奢華與爭議焦點</h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-transparent via-rococo-gold to-transparent mx-auto mt-4"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- 卡片 1 -->
+            <div class="rococo-card p-6 rounded-2xl cursor-pointer" onclick="toggleCardDetail(this)">
+                <div class="h-48 bg-rococo-pink/30 rounded-xl mb-4 border border-rococo-gold/40 flex items-center justify-center p-4">
+                    <svg viewBox="0 0 300 150" class="w-full h-full">
+                        <rect width="300" height="150" fill="#A8C3A0" opacity="0.3"/>
+                        <path d="M50 130 L100 70 L150 130 Z" fill="#D4AF37" opacity="0.6"/>
+                        <rect x="180" y="80" width="80" height="50" fill="#E899AC" rx="4"/>
+                        <text x="150" y="140" font-family="serif" font-size="12" fill="#2C3531" text-anchor="middle" font-weight="bold">王后農莊 (Le Hameau de la Reine)</text>
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold font-serif text-rococo-dark mb-2">「赤字夫人」與王后農莊</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    瑪麗皇后對高聳髮型與璀璨珠寶的熱愛引領歐洲時尚。但在國庫空虛之際，民間憤怒地稱她為「赤字夫人」。
+                </p>
+                <div class="card-detail hidden mt-4 pt-4 border-t border-rococo-gold/30 text-xs text-gray-700 leading-relaxed bg-white/70 p-3 rounded-lg">
+                    為了逃避凡爾賽宮繁文褥節的僵化禮儀，她在園林中建了「王后農莊」，親自扮演農家婦女擠牛奶，這在困苦的民間眼中被視為極其荒謬且揮霍的模仿遊戲。
+                </div>
+                <div class="mt-4 text-xs font-bold text-rococo-accent text-right">點擊展開詳細歷史背景 ▾</div>
+            </div>
+
+            <!-- 卡片 2 -->
+            <div class="rococo-card p-6 rounded-2xl cursor-pointer" onclick="toggleCardDetail(this)">
+                <div class="h-48 bg-rococo-pink/30 rounded-xl mb-4 border border-rococo-gold/40 flex items-center justify-center p-4">
+                    <svg viewBox="0 0 300 150" class="w-full h-full">
+                        <rect width="300" height="150" fill="#F4E8C1" opacity="0.4"/>
+                        <path d="M80 40 Q150 120 220 40" stroke="#D4AF37" stroke-width="6" fill="none"/>
+                        <circle cx="150" cy="80" r="10" fill="#FFF" stroke="#D4AF37" stroke-width="2"/>
+                        <text x="150" y="135" font-family="serif" font-size="12" fill="#2C3531" text-anchor="middle" font-weight="bold">鑽石項鍊詐騙案 (1785)</text>
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold font-serif text-rococo-dark mb-2">轟動全歐的「鑽石項鍊事件」</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    1785年爆發的世紀宮廷詐騙案，雖然瑪麗皇后完全是受害者，但事件讓百姓確信她就是個揮霍無度的皇后。
+                </p>
+                <div class="card-detail hidden mt-4 pt-4 border-t border-rococo-gold/30 text-xs text-gray-700 leading-relaxed bg-white/70 p-3 rounded-lg">
+                    一名冒牌女爵士偽造皇后簽名，騙走珠寶商價值連城的巨鑽項鍊。儘管法院最終判決皇后完全不知情，但民眾反王室情緒高漲，成為大革命爆發的催化劑。
+                </div>
+                <div class="mt-4 text-xs font-bold text-rococo-accent text-right">點擊展開詳細歷史背景 ▾</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="timeline" class="py-20 px-6 max-w-5xl mx-auto">
+        <div class="text-center mb-16">
+            <span class="text-xs uppercase tracking-widest text-rococo-accent font-bold">05 / TIMELINE</span>
+            <h2 class="text-3xl md:text-4xl font-black font-serif text-rococo-dark mt-2 rococo-ornament-title">瑪麗皇后的一生時間軸</h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-transparent via-rococo-gold to-transparent mx-auto mt-4"></div>
+        </div>
+
+        <!-- 時間軸節點按鈕 -->
+        <div class="flex justify-between items-center relative max-w-3xl mx-auto mb-10 px-4">
+            <div class="absolute top-1/2 left-0 w-full h-1 bg-rococo-pink -translate-y-1/2 z-0"></div>
+            <div id="timeline-progress" class="absolute top-1/2 left-0 h-1 bg-gradient-to-r from-rococo-rose to-rococo-gold -translate-y-1/2 z-0 transition-all duration-500 w-0"></div>
+
+            <button onclick="selectTimeline(0)" class="timeline-node relative z-10 w-12 h-12 rounded-full bg-rococo-rose text-white font-bold text-xs flex items-center justify-center shadow-lg transition transform hover:scale-110">1755</button>
+            <button onclick="selectTimeline(1)" class="timeline-node relative z-10 w-12 h-12 rounded-full bg-white border-2 border-rococo-pink text-gray-600 font-bold text-xs flex items-center justify-center shadow-lg transition transform hover:scale-110">1770</button>
+            <button onclick="selectTimeline(2)" class="timeline-node relative z-10 w-12 h-12 rounded-full bg-white border-2 border-rococo-pink text-gray-600 font-bold text-xs flex items-center justify-center shadow-lg transition transform hover:scale-110">1774</button>
+            <button onclick="selectTimeline(3)" class="timeline-node relative z-10 w-12 h-12 rounded-full bg-white border-2 border-rococo-pink text-gray-600 font-bold text-xs flex items-center justify-center shadow-lg transition transform hover:scale-110">1789</button>
+            <button onclick="selectTimeline(4)" class="timeline-node relative z-10 w-12 h-12 rounded-full bg-white border-2 border-rococo-pink text-gray-600 font-bold text-xs flex items-center justify-center shadow-lg transition transform hover:scale-110">1793</button>
+        </div>
+
+        <!-- 時間軸內容卡片 -->
+        <div id="timeline-card" class="rococo-gold-frame p-8 rounded-2xl max-w-3xl mx-auto shadow-xl bg-white">
+            <span id="timeline-tag" class="text-xs font-bold text-rococo-rose bg-rococo-pink/30 px-3 py-1 rounded-full">維也納霍夫堡宮</span>
+            <h3 id="timeline-title" class="text-2xl font-black font-serif text-rococo-dark mt-3 mb-2">1755 - 奧地利女大公誕生</h3>
+            <p id="timeline-desc" class="text-gray-600 text-sm leading-relaxed">
+                誕生於維也納霍夫堡皇宮，是神聖羅馬帝國皇帝弗朗茨一世與泰瑞莎女皇的第十五個孩子。童年在歡樂與輕鬆的音樂、藝術薰陶中度過。
+            </p>
+        </div>
+    </section>
+
+    <!-- Modal 放大視窗 -->
+    <div id="image-modal" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center p-4" onclick="closeModal()">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 rococo-gold-frame relative flex flex-col items-center" onclick="event.stopPropagation()">
+            <button onclick="closeModal()" class="absolute top-3 right-4 text-2xl font-bold text-gray-500 hover:text-rococo-rose">&times;</button>
+            <div id="modal-img-container" class="w-full aspect-[3/4] bg-gray-100 rounded-xl overflow-hidden mb-4 border border-rococo-gold/40"></div>
+            <h3 id="modal-title" class="text-xl font-bold text-rococo-dark font-serif mb-2 text-center"></h3>
+            <p id="modal-desc" class="text-sm text-gray-600 leading-relaxed"></p>
+        </div>
+    </div>
+
+    <!-- 頁尾 -->
+    <footer class="bg-rococo-dark text-white/80 py-8 px-6 text-center text-xs border-t-4 border-rococo-gold">
+        <p class="font-serif text-base text-rococo-pink mb-1 font-bold">瑪麗·安東妮 洛可可藝術與歷史導覽網</p>
+        <p>© 2026 精緻洛可可歷史藝術展覽</p>
+    </footer>
+
+    <script>
+        const timelineData = [
+            {
+                title: "1755 - 奧地利女大公誕生",
+                tag: "維也納霍夫堡宮",
+                desc: "誕生於維也納霍夫堡皇宮，是神聖羅馬帝國皇帝弗朗茨一世與泰瑞莎女皇的第十五個孩子。童年在歡樂與輕鬆的音樂、藝術薰陶中度過。",
+                progress: "0%"
+            },
+            {
+                title: "1770 - 遠嫁法蘭西王室",
+                tag: "凡爾賽宮大婚",
+                desc: "年僅14歲的瑪麗踏上法國土地，與法國王儲（後來的路易十六）締結政治婚姻，正式進入凡爾賽宮，引起全歐矚目。",
+                progress: "25%"
+            },
+            {
+                title: "1774 - 登上皇后寶座",
+                tag: "加冕成為法國皇后",
+                desc: "路易十五逝世，路易十六繼位，18歲的瑪麗·安東妮正式成為法蘭西皇后，開始引領全歐洲的洛可可時尚潮流。",
+                progress: "50%"
+            },
+            {
+                title: "1789 - 法國大革命爆發",
+                tag: "攻占巴士底監獄",
+                desc: "巴黎爆發法國大革命，憤怒的民眾包圍凡爾賽宮，將國王與皇后一家押送至巴黎杜樂麗宮監禁，皇室光彩不復存在。",
+                progress: "75%"
+            },
+            {
+                title: "1793 - 斷頭台上的終局",
+                tag: "巴黎協和廣場",
+                desc: "在經歷審判後，瑪麗·安東妮於協和廣場被處決，終年37歲。她臨刑前的優雅與從容，為她的人生劃下了悲壯的句點。",
+                progress: "100%"
+            }
+        ];
+
+        const modalDetails = [
+            {
+                title: "《手拿玫瑰的瑪麗·安東妮》",
+                desc: "1783年由宮廷畫家勒布倫夫人創作。畫像中皇后身著璀璨的藍灰色綢緞宮廷禮服，手持粉紅玫瑰，展示出洛可可時代極致優雅與華麗的美學風格。"
+            },
+            {
+                title: "《特里亞農公園散步的皇后與子女》",
+                desc: "1785年由瑞典畫家韋特米勒創作。展示瑪麗皇后與兩個孩子在小特里亞農宮花園中散步的景象，展現了她作為母親柔和自然的一面。"
+            },
+            {
+                title: "《穿棉質襯裙禮服的瑪麗·安東妮》",
+                desc: "1783年創作。畫中皇后穿著簡約的白色棉質長裙配戴草帽，打破了傳統宮廷禮服的繁複約束，當時在貴族階級引發極大震動與批評。"
+            }
+        ];
+
+        window.onload = function() {
+            // Anime.js 標題與視覺淡入動畫
+            anime.timeline({ easing: 'easeOutCubic' })
+            .add({
+                targets: '.hero-subtitle',
+                opacity: [0, 1],
+                translateY: [20, 0],
+                duration: 600
+            })
+            .add({
+                targets: '.hero-title',
+                opacity: [0, 1],
+                translateY: [20, 0],
+                duration: 800
+            }, '-=400')
+            .add({
+                targets: '.hero-desc',
+                opacity: [0, 1],
+                translateY: [20, 0],
+                duration: 600
+            }, '-=400')
+            .add({
+                targets: '.hero-image',
+                opacity: [0, 1],
+                scale: [0.95, 1],
+                duration: 800
+            }, '-=400')
+            .add({
+                targets: '.hero-btn',
+                opacity: [0, 1],
+                duration: 400
+            }, '-=200');
+        };
+
+        function selectTimeline(index) {
+            const data = timelineData[index];
+            const nodes = document.querySelectorAll('.timeline-node');
+            const progressBar = document.getElementById('timeline-progress');
+
+            nodes.forEach((node, idx) => {
+                if (idx === index) {
+                    node.classList.add('bg-rococo-rose', 'text-white');
+                    node.classList.remove('bg-white', 'text-gray-600');
+                } else {
+                    node.classList.remove('bg-rococo-rose', 'text-white');
+                    node.classList.add('bg-white', 'text-gray-600');
+                }
+            });
+
+            progressBar.style.width = data.progress;
+
+            anime({
+                targets: '#timeline-card',
+                opacity: [1, 0],
+                translateY: [0, -10],
+                duration: 150,
+                easing: 'easeInQuad',
+                complete: function() {
+                    document.getElementById('timeline-title').innerText = data.title;
+                    document.getElementById('timeline-tag').innerText = data.tag;
+                    document.getElementById('timeline-desc').innerText = data.desc;
+
+                    anime({
+                        targets: '#timeline-card',
+                        opacity: [0, 1],
+                        translateY: [10, 0],
+                        duration: 350,
+                        easing: 'easeOutQuad'
+                    });
+                }
+            });
+        }
+
+        function toggleCardDetail(card) {
+            const detail = card.querySelector('.card-detail');
+            detail.classList.toggle('hidden');
+        }
+
+        function openModal(index) {
+            const data = modalDetails[index];
+            document.getElementById('modal-title').innerText = data.title;
+            document.getElementById('modal-desc').innerText = data.desc;
+            document.getElementById('image-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('image-modal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
